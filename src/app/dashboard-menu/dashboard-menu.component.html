@@ -1,0 +1,36 @@
+<div class="dashboard-options">
+  <!-- Acciones Rápidas -->
+  <app-dashboard-quick-actions
+    [cartCount]="cartCount"
+    (orderDeliveryClick)="onMenuClick('orderDelivery')"
+    (showCatalogClick)="onMenuClick('showCatalog')"
+    (showCartClick)="onMenuClick('showCart')"
+    (showOrdersClick)="onMenuClick('showOrders')">
+  </app-dashboard-quick-actions>
+  
+  <!-- Menú de Usuario -->
+  <app-dashboard-user-menu
+    [favoritesCount]="favoritesCount"
+    (showProfileClick)="onMenuClick('showProfile')"
+    (showFavoritesClick)="onMenuClick('showFavorites')"
+    (showPointsHistoryClick)="onMenuClick('showPointsHistory')"
+    (showAddressesClick)="onMenuClick('showAddresses')">
+  </app-dashboard-user-menu>
+  
+  <!-- Utilidades -->
+  <app-dashboard-utilities
+    [notificationsCount]="notificationsCount"
+    (showNotificationsClick)="onMenuClick('showNotifications')"
+    (showHelpClick)="onMenuClick('showHelp')"
+    (showSettingsClick)="onMenuClick('showSettings')">
+  </app-dashboard-utilities>
+  
+  <!-- Características Especiales -->
+  <app-dashboard-special-features
+    [currentUser]="currentUser"
+    (showPromotionsClick)="onMenuClick('showPromotions')"
+    (showRecommendationsClick)="onMenuClick('showRecommendations')"
+    (showAdminPanelClick)="onMenuClick('showAdminPanel')"
+    (logoutClick)="onMenuClick('logout')">
+  </app-dashboard-special-features>
+</div>

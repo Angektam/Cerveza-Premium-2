@@ -1,0 +1,186 @@
+<div class="dashboard-quick-actions">
+  <div class="section-header">
+    <h3 class="dashboard-section-title">
+      <span class="title-icon">
+        <i class="fas fa-bolt"></i>
+      </span>
+      <span class="title-text">Acciones Rápidas</span>
+    </h3>
+    <p class="section-subtitle">Accede rápidamente a las funciones más utilizadas</p>
+  </div>
+  
+  <div class="dashboard-actions-grid">
+    <!-- Tarjeta: Pedir a Domicilio -->
+    <div class="action-card delivery-card" (click)="onOrderDelivery()">
+      <div class="card-background-pattern"></div>
+      <div class="card-glow-effect"></div>
+      
+      <div class="card-header">
+        <div class="card-icon-wrapper delivery-icon">
+          <div class="icon-inner">
+            <i class="fas fa-truck"></i>
+          </div>
+          <div class="icon-pulse"></div>
+        </div>
+        <span class="card-badge delivery-badge">
+          <i class="fas fa-sparkles"></i>
+          <span>¡Nuevo!</span>
+        </span>
+      </div>
+      
+      <div class="card-content">
+        <div class="card-title-wrapper">
+          <h4 class="card-title">Pedir a Domicilio</h4>
+          <div class="card-highlight delivery-highlight">Express</div>
+        </div>
+        <p class="card-description">Entrega express en menos de 45 minutos. Cervezas frías garantizadas.</p>
+        <div class="card-features">
+          <span class="feature-tag">
+            <i class="fas fa-clock"></i>
+            <span>45 min</span>
+          </span>
+          <span class="feature-tag">
+            <i class="fas fa-snowflake"></i>
+            <span>Fresco</span>
+          </span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <span class="card-action-text">
+          <span>Ordenar ahora</span>
+          <i class="fas fa-arrow-right"></i>
+        </span>
+        <div class="card-action-indicator"></div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta: Ver Catálogo -->
+    <div class="action-card catalog-card" (click)="onShowCatalog()">
+      <div class="card-background-pattern"></div>
+      <div class="card-glow-effect"></div>
+      
+      <div class="card-header">
+        <div class="card-icon-wrapper catalog-icon">
+          <div class="icon-inner">
+            <i class="fas fa-beer"></i>
+          </div>
+          <div class="icon-pulse"></div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <div class="card-title-wrapper">
+          <h4 class="card-title">Ver Catálogo</h4>
+          <div class="card-highlight catalog-highlight">Premium</div>
+        </div>
+        <p class="card-description">Explora nuestra selección premium de cervezas artesanales mexicanas.</p>
+        <div class="card-features">
+          <span class="feature-tag">
+            <i class="fas fa-star"></i>
+            <span>Premium</span>
+          </span>
+          <span class="feature-tag">
+            <i class="fas fa-leaf"></i>
+            <span>Artesanal</span>
+          </span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <span class="card-action-text">
+          <span>Explorar</span>
+          <i class="fas fa-arrow-right"></i>
+        </span>
+        <div class="card-action-indicator"></div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta: Mi Carrito -->
+    <div class="action-card cart-card" (click)="onShowCart()">
+      <div class="card-background-pattern"></div>
+      <div class="card-glow-effect"></div>
+      
+      <div class="card-header">
+        <div class="card-icon-wrapper cart-icon">
+          <div class="icon-inner">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="icon-pulse"></div>
+        </div>
+        <span class="card-badge cart-badge" [style.display]="cartCount > 0 ? 'flex' : 'none'">
+          <span>{{ cartCount }}</span>
+        </span>
+      </div>
+      
+      <div class="card-content">
+        <div class="card-title-wrapper">
+          <h4 class="card-title">Mi Carrito</h4>
+          <div class="card-highlight cart-highlight" *ngIf="cartCount > 0">Activo</div>
+        </div>
+        <p class="card-description">
+          {{ cartCount > 0 ? cartCount + ' producto' + (cartCount > 1 ? 's' : '') + ' en tu carrito' : 'Tu carrito está vacío. ¡Agrega productos!' }}
+        </p>
+        <div class="card-features" *ngIf="cartCount > 0">
+          <span class="feature-tag">
+            <i class="fas fa-check-circle"></i>
+            <span>Listo</span>
+          </span>
+          <span class="feature-tag">
+            <i class="fas fa-shopping-bag"></i>
+            <span>{{ cartCount }} items</span>
+          </span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <span class="card-action-text">
+          <span>Ver carrito</span>
+          <i class="fas fa-arrow-right"></i>
+        </span>
+        <div class="card-action-indicator"></div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta: Mis Pedidos -->
+    <div class="action-card orders-card" (click)="onShowOrders()">
+      <div class="card-background-pattern"></div>
+      <div class="card-glow-effect"></div>
+      
+      <div class="card-header">
+        <div class="card-icon-wrapper orders-icon">
+          <div class="icon-inner">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <div class="icon-pulse"></div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <div class="card-title-wrapper">
+          <h4 class="card-title">Mis Pedidos</h4>
+          <div class="card-highlight orders-highlight">Historial</div>
+        </div>
+        <p class="card-description">Revisa tu historial completo de compras y estado de pedidos.</p>
+        <div class="card-features">
+          <span class="feature-tag">
+            <i class="fas fa-history"></i>
+            <span>Historial</span>
+          </span>
+          <span class="feature-tag">
+            <i class="fas fa-file-invoice"></i>
+            <span>Detalles</span>
+          </span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <span class="card-action-text">
+          <span>Ver pedidos</span>
+          <i class="fas fa-arrow-right"></i>
+        </span>
+        <div class="card-action-indicator"></div>
+      </div>
+    </div>
+  </div>
+</div>

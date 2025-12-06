@@ -1,0 +1,233 @@
+/* You can add global styles to this file, and also import other style files */
+/* Estilos globales para la aplicación */
+:root {
+  --gold: #FFD700;
+  --dark-gold: #B8860B;
+  --amber: #FFA500;
+  --dark-amber: #CC7A00;
+  --brown: #8B4513;
+  --dark-brown: #654321;
+  --cream: #FFF8DC;
+  --dark-bg: #1A1A1A;
+  --darker-bg: #0F0F0F;
+  --text-light: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+  color: var(--text-light);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.08), transparent 45%),
+              radial-gradient(circle at 80% 0%, rgba(255, 140, 0, 0.08), transparent 40%),
+              radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.03), transparent 55%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.btn-premium {
+  background: linear-gradient(145deg, var(--gold), var(--amber));
+  color: var(--dark-bg);
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+.form-control-glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  border-radius: 12px;
+}
+
+.form-control-glass:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--gold);
+  color: var(--text-light);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--amber);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(255, 215, 0, 0.35);
+  color: var(--dark-bg);
+}
+
+/* Scrollbar refinado para navegadores WebKit */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold), var(--dark-amber));
+  border-radius: 999px;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--amber), var(--dark-gold));
+}
+
+.section-shell {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: var(--gold);
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+
+.grid-autofit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.shadow-xl {
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.35);
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, var(--gold), var(--amber));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.floating-shape {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.5), transparent 65%);
+  filter: blur(40px);
+  opacity: 0.4;
+  animation: float 18s ease-in-out infinite;
+}
+
+.floating-shape:nth-child(2) {
+  width: 320px;
+  height: 320px;
+  animation-delay: 4s;
+  opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 0.75rem;
+  }
+
+  .glass-card {
+    border-radius: 16px;
+    padding: 1.5rem;
+  }
+
+  .grid-autofit {
+    gap: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

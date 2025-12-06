@@ -1,0 +1,548 @@
+/* Estilos mejorados para Menú de Usuario */
+.dashboard-user-menu {
+  margin-bottom: 40px;
+}
+
+.section-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.dashboard-section-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: #ecf0f1;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.title-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 8px 24px rgba(155, 89, 182, 0.4);
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(155, 89, 182, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(155, 89, 182, 0.6);
+  }
+}
+
+.title-text {
+  background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: #95a5a6;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+/* Tarjetas de Acción Mejoradas */
+.action-card {
+  background: linear-gradient(135deg, #232b38 0%, #1a1f2e 100%);
+  border-radius: 24px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(155, 89, 182, 0.2);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+}
+
+.card-background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(155, 89, 182, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(155, 89, 182, 0.03) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.action-card:hover .card-background-pattern {
+  opacity: 1;
+}
+
+.card-glow-effect {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(155, 89, 182, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.action-card:hover .card-glow-effect {
+  opacity: 1;
+}
+
+.action-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(155, 89, 182, 0.08) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.action-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  border-color: rgba(155, 89, 182, 0.5);
+  box-shadow: 0 20px 60px rgba(155, 89, 182, 0.25), 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.action-card:hover::before {
+  opacity: 1;
+}
+
+/* Header de la tarjeta mejorado */
+.card-header {
+  position: relative;
+  padding: 28px 28px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.card-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.icon-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s;
+}
+
+.icon-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  opacity: 0;
+  animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.action-card:hover .card-icon-wrapper {
+  transform: scale(1.15) rotate(8deg);
+}
+
+.action-card:hover .icon-inner {
+  transform: scale(1.1);
+}
+
+/* Iconos específicos mejorados */
+.profile-icon {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  box-shadow: 0 12px 32px rgba(52, 152, 219, 0.5);
+}
+
+.profile-icon .icon-pulse {
+  background: rgba(52, 152, 219, 0.3);
+}
+
+.favorites-icon {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  box-shadow: 0 12px 32px rgba(231, 76, 60, 0.5);
+}
+
+.favorites-icon .icon-pulse {
+  background: rgba(231, 76, 60, 0.3);
+}
+
+.points-icon {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: white;
+  box-shadow: 0 12px 32px rgba(243, 156, 18, 0.5);
+}
+
+.points-icon .icon-pulse {
+  background: rgba(243, 156, 18, 0.3);
+}
+
+.addresses-icon {
+  background: linear-gradient(135deg, #16a085 0%, #138d75 100%);
+  color: white;
+  box-shadow: 0 12px 32px rgba(22, 160, 133, 0.5);
+}
+
+.addresses-icon .icon-pulse {
+  background: rgba(22, 160, 133, 0.3);
+}
+
+/* Badges mejorados */
+.card-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 3;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: badgeFloat 3s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.favorites-badge {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: 0;
+  justify-content: center;
+  font-size: 14px;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* Contenido mejorado */
+.card-content {
+  padding: 0 28px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+  position: relative;
+}
+
+.card-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: #ecf0f1;
+  margin: 0;
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+
+.card-highlight {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(155, 89, 182, 0.2);
+  color: #9b59b6;
+  border: 1px solid rgba(155, 89, 182, 0.3);
+}
+
+.profile-highlight {
+  background: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+  border-color: rgba(52, 152, 219, 0.3);
+}
+
+.favorites-highlight {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border-color: rgba(231, 76, 60, 0.3);
+}
+
+.points-highlight {
+  background: rgba(243, 156, 18, 0.2);
+  color: #f39c12;
+  border-color: rgba(243, 156, 18, 0.3);
+}
+
+.addresses-highlight {
+  background: rgba(22, 160, 133, 0.2);
+  color: #16a085;
+  border-color: rgba(22, 160, 133, 0.3);
+}
+
+.card-description {
+  font-size: 14px;
+  color: #bdc3c7;
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.card-features {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.feature-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #95a5a6;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.action-card:hover .feature-tag {
+  background: rgba(155, 89, 182, 0.1);
+  border-color: rgba(155, 89, 182, 0.2);
+  color: #9b59b6;
+}
+
+.feature-tag i {
+  font-size: 11px;
+}
+
+/* Footer mejorado */
+.card-footer {
+  padding: 20px 28px 28px;
+  border-top: 1px solid rgba(155, 89, 182, 0.15);
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.card-action-text {
+  font-size: 15px;
+  font-weight: 800;
+  color: #9b59b6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: all 0.4s;
+  position: relative;
+}
+
+.action-card:hover .card-action-text {
+  color: #bb8fce;
+  transform: translateX(6px);
+}
+
+.card-action-text i {
+  font-size: 13px;
+  transition: transform 0.4s;
+}
+
+.action-card:hover .card-action-text i {
+  transform: translateX(6px);
+}
+
+.card-action-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #9b59b6 0%, #8e44ad 100%);
+  transition: width 0.4s;
+  border-radius: 0 0 24px 24px;
+}
+
+.action-card:hover .card-action-indicator {
+  width: 100%;
+}
+
+/* Efectos especiales por tarjeta */
+.profile-card:hover {
+  box-shadow: 0 20px 60px rgba(52, 152, 219, 0.3), 0 8px 24px rgba(0, 0, 0, 0.5);
+  border-color: rgba(52, 152, 219, 0.5);
+}
+
+.favorites-card:hover {
+  box-shadow: 0 20px 60px rgba(231, 76, 60, 0.3), 0 8px 24px rgba(0, 0, 0, 0.5);
+  border-color: rgba(231, 76, 60, 0.5);
+}
+
+.points-card:hover {
+  box-shadow: 0 20px 60px rgba(243, 156, 18, 0.3), 0 8px 24px rgba(0, 0, 0, 0.5);
+  border-color: rgba(243, 156, 18, 0.5);
+}
+
+.addresses-card:hover {
+  box-shadow: 0 20px 60px rgba(22, 160, 133, 0.3), 0 8px 24px rgba(0, 0, 0, 0.5);
+  border-color: rgba(22, 160, 133, 0.5);
+}
+
+/* Responsive mejorado */
+@media (max-width: 768px) {
+  .dashboard-actions-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .action-card {
+    min-height: 260px;
+  }
+  
+  .card-icon-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .icon-inner {
+    font-size: 32px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+  }
+  
+  .card-description {
+    font-size: 13px;
+  }
+  
+  .card-header {
+    padding: 24px 24px 16px;
+  }
+  
+  .card-content {
+    padding: 0 24px 16px;
+  }
+  
+  .card-footer {
+    padding: 16px 24px 24px;
+  }
+  
+  .dashboard-section-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header {
+    margin-bottom: 24px;
+  }
+  
+  .dashboard-section-title {
+    font-size: 20px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .title-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .action-card {
+    min-height: 240px;
+  }
+  
+  .card-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .icon-inner {
+    font-size: 28px;
+  }
+}

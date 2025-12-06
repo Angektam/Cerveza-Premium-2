@@ -1,0 +1,319 @@
+/* Estilos del menú del dashboard - Copiados de app.component.css para mantener consistencia */
+
+/* Grid del dashboard mejorado - Ahora organizado por secciones */
+.dashboard-options {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 20px 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Botones del dashboard mejorados */
+.dashboard-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 36px 24px;
+  background: #232b38;
+  border: 2.5px solid #34495e;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ecf0f1;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #0000000a;
+  letter-spacing: 0.01em;
+}
+
+.dashboard-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(253, 187, 45, 0.13), transparent);
+  transition: 0.5s;
+}
+
+.dashboard-btn:hover::before {
+  left: 100%;
+}
+
+.dashboard-btn i {
+  font-size: 36px;
+  color: #fdbb2d;
+  transition: all 0.3s;
+}
+
+.dashboard-btn:hover {
+  border-color: #fdbb2d;
+  transform: translateY(-7px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(253, 187, 45, 0.13);
+}
+
+.dashboard-btn:hover i {
+  transform: scale(1.13);
+}
+
+/* Botón principal destacado */
+.dashboard-btn.primary-btn {
+  background: linear-gradient(145deg, #fdbb2d, #f9a825);
+  border-color: #fdbb2d;
+  font-size: 21px;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(253, 187, 45, 0.35);
+}
+
+.dashboard-btn.primary-btn:hover {
+  background: linear-gradient(145deg, #ffc942, #fdbb2d);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(253, 187, 45, 0.45);
+}
+
+.dashboard-btn.primary-btn i {
+  color: #1a1a1a;
+  font-size: 42px;
+}
+
+/* Botón especial para Pedir a Domicilio */
+.dashboard-btn.delivery-btn {
+  background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid rgba(102, 126, 234, 0.5);
+  font-size: 22px;
+  font-weight: 800;
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4), 0 0 40px rgba(102, 126, 234, 0.2);
+  animation: pulseGlow 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  grid-column: span 2;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4), 0 0 40px rgba(102, 126, 234, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 40px rgba(102, 126, 234, 0.6), 0 0 60px rgba(102, 126, 234, 0.3);
+  }
+}
+
+.dashboard-btn.delivery-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.dashboard-btn.delivery-btn:hover {
+  background: linear-gradient(145deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 12px 45px rgba(102, 126, 234, 0.5), 0 0 70px rgba(102, 126, 234, 0.3);
+  border-color: rgba(102, 126, 234, 0.8);
+}
+
+.dashboard-btn.delivery-btn i {
+  color: white;
+  font-size: 44px;
+}
+
+/* Badge "Nuevo" */
+.delivery-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(145deg, #ff6b6b 0%, #ee5a6f 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Badges para notificaciones y favoritos */
+.favorites-badge,
+.notification-badge,
+.cart-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.5);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Botón "Ver Catálogo" mejorado */
+#showCatalog.dashboard-btn {
+  background: #232b38;
+  border: 2.5px solid #fdbb2d;
+  color: #fdbb2d;
+  transition: all 0.3s;
+  font-weight: 700;
+}
+
+#showCatalog.dashboard-btn i {
+  color: #fdbb2d;
+}
+
+#showCatalog.dashboard-btn:hover {
+  background: #fdbb2d;
+  color: #2c3e50;
+  border-color: #fdbb2d;
+  box-shadow: 0 8px 24px #fdbb2d33;
+}
+
+#showCatalog.dashboard-btn:hover i {
+  color: #2c3e50;
+}
+
+/* Botón "Mi Carrito" mejorado */
+#showCart.dashboard-btn {
+  background: #232b38;
+  border: 2.5px solid #27ae60;
+  color: #27ae60;
+  transition: all 0.3s;
+  font-weight: 700;
+}
+
+#showCart.dashboard-btn i {
+  color: #27ae60;
+}
+
+#showCart.dashboard-btn:hover {
+  background: #27ae60;
+  color: #2c3e50;
+  border-color: #27ae60;
+  box-shadow: 0 8px 24px #27ae6033;
+}
+
+#showCart.dashboard-btn:hover i {
+  color: #2c3e50;
+}
+
+/* Botón "Mis Pedidos" mejorado */
+#showOrders.dashboard-btn {
+  background: #232b38;
+  border: 2.5px solid #3498db;
+  color: #3498db;
+  transition: all 0.3s;
+  font-weight: 700;
+}
+
+#showOrders.dashboard-btn i {
+  color: #3498db;
+}
+
+#showOrders.dashboard-btn:hover {
+  background: #3498db;
+  color: #2c3e50;
+  border-color: #3498db;
+  box-shadow: 0 8px 24px #3498db33;
+}
+
+#showOrders.dashboard-btn:hover i {
+  color: #2c3e50;
+}
+
+.logout-btn {
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+.logout-btn i {
+  color: #e74c3c;
+}
+
+.logout-btn:hover {
+  border-color: #e74c3c;
+  background: rgba(231, 76, 60, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-options {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  
+  .dashboard-btn {
+    padding: 24px 16px;
+    font-size: 15px;
+  }
+  
+  .dashboard-btn i {
+    font-size: 28px;
+  }
+  
+  .dashboard-btn.primary-btn {
+    font-size: 16px;
+  }
+  
+  .dashboard-btn.primary-btn i {
+    font-size: 32px;
+  }
+
+  .dashboard-btn.delivery-btn {
+    grid-column: span 1;
+    font-size: 16px;
+  }
+
+  .dashboard-btn.delivery-btn i {
+    font-size: 36px;
+  }
+
+  .delivery-badge {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+}
+

@@ -1,0 +1,182 @@
+<div class="dashboard-user-menu">
+  <div class="section-header">
+    <h3 class="dashboard-section-title">
+      <span class="title-icon">
+        <i class="fas fa-user-circle"></i>
+      </span>
+      <span class="title-text">Mi Cuenta</span>
+    </h3>
+    <p class="section-subtitle">Gestiona tu perfil y preferencias personales</p>
+  </div>
+  
+  <div class="dashboard-actions-grid">
+    <!-- Tarjeta: Mi Perfil -->
+    <div class="action-card profile-card" (click)="onShowProfile()">
+      <div class="card-background-pattern"></div>
+      <div class="card-glow-effect"></div>
+      
+      <div class="card-header">
+        <div class="card-icon-wrapper profile-icon">
+          <div class="icon-inner">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="icon-pulse"></div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <div class="card-title-wrapper">
+          <h4 class="card-title">Mi Perfil</h4>
+          <div class="card-highlight profile-highlight">Personal</div>
+        </div>
+        <p class="card-description">Actualiza tu información personal, foto de perfil y preferencias de cuenta.</p>
+        <div class="card-features">
+          <span class="feature-tag">
+            <i class="fas fa-id-card"></i>
+            <span>Datos</span>
+          </span>
+          <span class="feature-tag">
+            <i class="fas fa-camera"></i>
+            <span>Foto</span>
+          </span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <span class="card-action-text">
+          <span>Ver perfil</span>
+          <i class="fas fa-arrow-right"></i>
+        </span>
+        <div class="card-action-indicator"></div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta: Mis Favoritos -->
+    <div class="action-card favorites-card" (click)="onShowFavorites()">
+      <div class="card-background-pattern"></div>
+      <div class="card-glow-effect"></div>
+      
+      <div class="card-header">
+        <div class="card-icon-wrapper favorites-icon">
+          <div class="icon-inner">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="icon-pulse"></div>
+        </div>
+        <span class="card-badge favorites-badge" [style.display]="favoritesCount > 0 ? 'flex' : 'none'">
+          <span>{{ favoritesCount }}</span>
+        </span>
+      </div>
+      
+      <div class="card-content">
+        <div class="card-title-wrapper">
+          <h4 class="card-title">Mis Favoritos</h4>
+          <div class="card-highlight favorites-highlight" *ngIf="favoritesCount > 0">Activo</div>
+        </div>
+        <p class="card-description">
+          {{ favoritesCount > 0 ? favoritesCount + ' cerveza' + (favoritesCount > 1 ? 's' : '') + ' guardada' + (favoritesCount > 1 ? 's' : '') : 'Guarda tus cervezas favoritas para acceso rápido' }}
+        </p>
+        <div class="card-features">
+          <span class="feature-tag">
+            <i class="fas fa-heart"></i>
+            <span>{{ favoritesCount > 0 ? favoritesCount + ' items' : 'Vacío' }}</span>
+          </span>
+          <span class="feature-tag">
+            <i class="fas fa-bookmark"></i>
+            <span>Guardados</span>
+          </span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <span class="card-action-text">
+          <span>Ver favoritos</span>
+          <i class="fas fa-arrow-right"></i>
+        </span>
+        <div class="card-action-indicator"></div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta: Historial de Puntos -->
+    <div class="action-card points-card" (click)="onShowPointsHistory()">
+      <div class="card-background-pattern"></div>
+      <div class="card-glow-effect"></div>
+      
+      <div class="card-header">
+        <div class="card-icon-wrapper points-icon">
+          <div class="icon-inner">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="icon-pulse"></div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <div class="card-title-wrapper">
+          <h4 class="card-title">Historial de Puntos</h4>
+          <div class="card-highlight points-highlight">CervezaPoints</div>
+        </div>
+        <p class="card-description">Revisa todas tus transacciones de puntos: ganados, usados y canjeados.</p>
+        <div class="card-features">
+          <span class="feature-tag">
+            <i class="fas fa-chart-line"></i>
+            <span>Historial</span>
+          </span>
+          <span class="feature-tag">
+            <i class="fas fa-coins"></i>
+            <span>Puntos</span>
+          </span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <span class="card-action-text">
+          <span>Ver historial</span>
+          <i class="fas fa-arrow-right"></i>
+        </span>
+        <div class="card-action-indicator"></div>
+      </div>
+    </div>
+    
+    <!-- Tarjeta: Mis Direcciones -->
+    <div class="action-card addresses-card" (click)="onShowAddresses()">
+      <div class="card-background-pattern"></div>
+      <div class="card-glow-effect"></div>
+      
+      <div class="card-header">
+        <div class="card-icon-wrapper addresses-icon">
+          <div class="icon-inner">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="icon-pulse"></div>
+        </div>
+      </div>
+      
+      <div class="card-content">
+        <div class="card-title-wrapper">
+          <h4 class="card-title">Mis Direcciones</h4>
+          <div class="card-highlight addresses-highlight">Envío</div>
+        </div>
+        <p class="card-description">Administra tus direcciones de envío para hacer tus pedidos más rápido.</p>
+        <div class="card-features">
+          <span class="feature-tag">
+            <i class="fas fa-home"></i>
+            <span>Direcciones</span>
+          </span>
+          <span class="feature-tag">
+            <i class="fas fa-truck"></i>
+            <span>Envío</span>
+          </span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <span class="card-action-text">
+          <span>Gestionar</span>
+          <i class="fas fa-arrow-right"></i>
+        </span>
+        <div class="card-action-indicator"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="dashboard-special-features">
+  <h3 class="dashboard-section-title">
+    <i class="fas fa-sparkles"></i>
+    Características Especiales
+  </h3>
+  
+  <div class="dashboard-actions-grid">
+    <button class="dashboard-btn" (click)="onShowPromotions()">
+      <i class="fas fa-gift"></i>
+      <span>Promociones</span>
+    </button>
+    
+    <button class="dashboard-btn" (click)="onShowRecommendations()">
+      <i class="fas fa-magic"></i>
+      <span>Recomendaciones</span>
+    </button>
+    
+    <button 
+      class="dashboard-btn admin-btn" 
+      (click)="onShowAdminPanel()" 
+      *ngIf="showAdminButton">
+      <i class="fas fa-cog"></i>
+      <span>Panel Admin</span>
+    </button>
+  </div>
+  
+  <div class="dashboard-logout-section">
+    <button class="dashboard-btn logout-btn" (click)="onLogout()">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Cerrar Sesión</span>
+    </button>
+  </div>
+</div>

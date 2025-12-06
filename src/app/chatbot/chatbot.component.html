@@ -1,0 +1,120 @@
+<!-- Botón flotante del chatbot -->
+<div class="chatbot-container">
+  <button 
+    class="chat-toggle-btn" 
+    (click)="toggleChat()"
+    [class.chat-open]="isOpen"
+    aria-label="Abrir chat"
+  >
+    <i class="fas" [ngClass]="isOpen ? 'fa-times' : 'fa-comments'"></i>
+  </button>
+
+  <!-- Ventana del chat -->
+  <div class="chat-window" [class.show]="isOpen">
+    <!-- Header del chat -->
+    <div class="chat-header">
+      <div class="chat-header-content">
+        <div class="bot-avatar">
+          <i class="fas fa-beer"></i>
+        </div>
+        <div class="bot-info">
+          <h3>Asistente Virtual</h3>
+          <span class="status">
+            <span class="status-dot"></span>
+            En línea
+          </span>
+        </div>
+      </div>
+      <button class="close-btn" (click)="toggleChat()" aria-label="Cerrar chat">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Mensajes del chat -->
+    <div class="chat-messages">
+      <div 
+        *ngFor="let message of messages" 
+        class="message"
+        [class.bot-message]="message.isBot"
+        [class.user-message]="!message.isBot"
+      >
+        <div class="message-avatar" *ngIf="message.isBot">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+          <p [innerHTML]="message.text"></p>
+          <span class="message-time">{{ message.timestamp | date:'shortTime' }}</span>
+        </div>
+        <div class="message-avatar" *ngIf="!message.isBot">
+          <i class="fas fa-user"></i>
+        </div>
+      </div>
+
+      <!-- Indicador de escritura -->
+      <div class="message bot-message" *ngIf="isTyping">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content typing-indicator">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input del chat -->
+    <div class="chat-input-container">
+      <div class="quick-options">
+        <button class="quick-btn" (click)="userInput = 'ayuda'; sendMessage()">
+          <i class="fas fa-question-circle"></i> Ayuda
+        </button>
+        <button class="quick-btn" (click)="userInput = 'productos'; sendMessage()">
+          <i class="fas fa-beer"></i> Productos
+        </button>
+        <button class="quick-btn" (click)="userInput = 'carrito'; sendMessage()">
+          <i class="fas fa-shopping-cart"></i> Carrito
+        </button>
+        <button class="quick-btn" (click)="userInput = 'recomendacion'; sendMessage()">
+          <i class="fas fa-star"></i> Recomendaciones
+        </button>
+        <button class="quick-btn" (click)="userInput = 'historial'; sendMessage()">
+          <i class="fas fa-history"></i> Mis Pedidos
+        </button>
+        <button class="quick-btn" (click)="userInput = 'precio'; sendMessage()">
+          <i class="fas fa-dollar-sign"></i> Precios
+        </button>
+      </div>
+      <div class="chat-input">
+        <input 
+          type="text" 
+          [(ngModel)]="userInput"
+          (keypress)="handleKeyPress($event)"
+          placeholder="Escribe tu pregunta..."
+          class="message-input"
+        />
+        <button 
+          class="send-btn" 
+          (click)="sendMessage()"
+          [disabled]="!userInput.trim()"
+          aria-label="Enviar mensaje"
+        >
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+      <!-- Botón de Telegram como alternativa -->
+      <div class="telegram-fallback">
+        <a 
+          [href]="telegramLink" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="telegram-btn"
+        >
+          <i class="fab fa-telegram-plane"></i>
+          <span>¿Necesitas ayuda? Contáctanos por Telegram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

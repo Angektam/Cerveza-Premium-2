@@ -1,0 +1,24 @@
+<div class="dashboard-utilities">
+  <h3 class="dashboard-section-title">
+    <i class="fas fa-cog"></i>
+    Utilidades
+  </h3>
+  
+  <div class="dashboard-actions-grid">
+    <button class="dashboard-btn" (click)="onShowNotifications()">
+      <i class="fas fa-bell"></i>
+      <span>Notificaciones</span>
+      <span class="notification-badge" [style.display]="notificationsCount > 0 ? 'flex' : 'none'">{{ notificationsCount }}</span>
+    </button>
+    
+    <button class="dashboard-btn" (click)="onShowHelp()">
+      <i class="fas fa-question-circle"></i>
+      <span>Ayuda y Soporte</span>
+    </button>
+    
+    <button class="dashboard-btn" (click)="onShowSettings()">
+      <i class="fas fa-sliders-h"></i>
+      <span>Configuración</span>
+    </button>
+  </div>
+</div>
