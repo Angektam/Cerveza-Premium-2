@@ -196,6 +196,53 @@ CORS_ORIGIN=http://localhost:4200
 - CORS configurado
 - Helmet para headers de seguridad
 
+## 🚀 Despliegue en GitHub Pages
+
+El proyecto está configurado para desplegarse automáticamente en GitHub Pages.
+
+### Configuración Inicial
+
+1. **Habilita GitHub Pages en tu repositorio:**
+   - Ve a `Settings` > `Pages` en tu repositorio de GitHub
+   - En `Source`, selecciona `GitHub Actions`
+   - Guarda los cambios
+
+2. **Ajusta el baseHref (si es necesario):**
+   - Si tu repositorio se llama diferente a `ArribaElAmerica`, edita `.github/workflows/deploy-gh-pages.yml`
+   - Cambia `base-href="/${{ github.event.repository.name }}/"` por el nombre correcto
+   - O edita `angular.json` y actualiza `baseHref` en la configuración `github-pages`
+
+3. **Ajusta la rama principal:**
+   - Si tu rama principal es `master` en lugar de `main`, edita `.github/workflows/deploy-gh-pages.yml`
+   - Cambia `branches: - main` por `branches: - master`
+
+### Despliegue Automático
+
+El workflow se ejecuta automáticamente cuando:
+- Haces push a la rama `main` (o `master`)
+- Ejecutas manualmente desde la pestaña `Actions` en GitHub
+
+### Despliegue Manual
+
+Para construir y desplegar manualmente:
+
+```bash
+# Build con configuración para GitHub Pages
+npm run build -- --configuration=github-pages
+
+# O con baseHref personalizado
+npm run build -- --configuration=production --base-href="/tu-repositorio/"
+```
+
+### URL de la Aplicación
+
+Una vez desplegado, tu aplicación estará disponible en:
+```
+https://tu-usuario.github.io/ArribaElAmerica/
+```
+
+**Nota:** El backend no se despliega en GitHub Pages. Necesitarás desplegar el backend por separado (Heroku, Railway, Render, etc.) y actualizar las URLs de la API en el código.
+
 ## 📝 Licencia
 
 MIT

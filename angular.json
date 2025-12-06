@@ -52,6 +52,12 @@
               "outputHashing": "all",
               "serviceWorker": "ngsw-config.json"
             },
+            "github-pages": {
+              "baseHref": "/ArribaElAmerica/",
+              "outputHashing": "all",
+              "optimization": true,
+              "sourceMap": false
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
