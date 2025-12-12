@@ -133,6 +133,7 @@ node tests/test-ejecutar-todo.js
 - [GitHub Pages](docs/GITHUB-PAGES.md) - Configuración de GitHub Pages
 - [Netlify](docs/NETLIFY-SETUP.md) - Configuración de Netlify
 - [Configurar URL del Backend](docs/CONFIGURAR-BACKEND-URL.md) - Cómo configurar la URL del backend para producción
+- [Configurar CORS](docs/CONFIGURAR-CORS.md) - Cómo configurar CORS para producción
 - [Tests](docs/README-TESTS.md) - Guía de testing
 - [Seguridad](docs/SECURITY.md) - Características de seguridad
 

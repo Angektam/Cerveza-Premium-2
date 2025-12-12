@@ -84,13 +84,31 @@ if (!isDevelopment) {
 }
 
 // ========== SEGURIDAD: CORS ==========
-const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:4200';
-app.use(cors({ 
-  origin: corsOrigin, 
+// Permitir múltiples orígenes separados por coma
+const corsOrigins = process.env.CORS_ORIGIN 
+  ? process.env.CORS_ORIGIN.split(',').map(origin => origin.trim())
+  : ['http://localhost:4200'];
+
+// Función para verificar si el origen está permitido
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Permitir peticiones sin origen (como Postman o aplicaciones móviles)
+    if (!origin) return callback(null, true);
+    
+    // Verificar si el origen está en la lista permitida
+    if (corsOrigins.indexOf(origin) !== -1 || corsOrigins.includes('*')) {
+      callback(null, true);
+    } else {
+      console.log(`⚠️  CORS bloqueado para origen: ${origin}`);
+      callback(new Error('No permitido por CORS'));
+    }
+  },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-CSRF-Token']
-}));
+};
+
+app.use(cors(corsOptions));
 
 // ========== MIDDLEWARE BÁSICO ==========
 app.use(express.json({ limit: '10mb' }));

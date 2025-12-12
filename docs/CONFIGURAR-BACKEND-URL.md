@@ -66,17 +66,16 @@ export const environment = {
 
 ### 4. Configurar CORS en el Backend
 
-Asegúrate de que tu backend permita peticiones desde tu frontend de Netlify:
+**IMPORTANTE:** El backend ahora soporta múltiples orígenes separados por coma.
 
 **En Railway/Render/Heroku, agrega esta variable de entorno:**
 ```env
-CORS_ORIGIN=https://tu-app.netlify.app
-```
-
-O si quieres permitir múltiples orígenes:
-```env
 CORS_ORIGIN=https://tu-app.netlify.app,http://localhost:4200
 ```
+
+**Nota:** Puedes agregar múltiples orígenes separados por coma. El backend automáticamente los procesará.
+
+Consulta `docs/CONFIGURAR-CORS.md` para más detalles sobre la configuración de CORS.
 
 ### 5. Re-desplegar el Frontend
 
