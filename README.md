@@ -129,6 +129,10 @@ node tests/test-ejecutar-todo.js
 
 - [README Backend](backend/README.md) - Documentación del backend
 - [README Database](docs/README-DATABASE.md) - Esquema de base de datos
+- [Opciones de Despliegue](docs/OPCIONES-DESPLIEGUE.md) - Guía completa de despliegue
+- [GitHub Pages](docs/GITHUB-PAGES.md) - Configuración de GitHub Pages
+- [Netlify](docs/NETLIFY-SETUP.md) - Configuración de Netlify
+- [Configurar URL del Backend](docs/CONFIGURAR-BACKEND-URL.md) - Cómo configurar la URL del backend para producción
 - [Tests](docs/README-TESTS.md) - Guía de testing
 - [Seguridad](docs/SECURITY.md) - Características de seguridad
 
@@ -141,7 +145,6 @@ node tests/test-ejecutar-todo.js
 
 ### Backend
 - `node server.js` - Iniciar servidor
-- `node server-improved.js` - Servidor mejorado
 
 ### Utilidades
 - `node scripts/create-test-users.js` - Crear usuarios de prueba
@@ -196,9 +199,30 @@ CORS_ORIGIN=http://localhost:4200
 - CORS configurado
 - Helmet para headers de seguridad
 
-## 🚀 Despliegue en GitHub Pages
+## 🚀 Despliegue
 
-El proyecto está configurado para desplegarse automáticamente en GitHub Pages.
+### Despliegue en Netlify (Recomendado)
+
+El proyecto está configurado para desplegarse en **Netlify**. Consulta la **[Guía Completa de Despliegue en Netlify](docs/OPCIONES-DESPLIEGUE.md)** para instrucciones detalladas.
+
+**Resumen rápido:**
+- **Frontend:** Netlify Hosting (ya configurado con `netlify.toml`)
+- **Backend:** Railway o Render (recomendado) o Netlify Functions
+- **Base de Datos:** PlanetScale (gratis y MySQL compatible)
+
+**Despliegue rápido:**
+1. Ve a [netlify.com](https://netlify.com) y conecta tu repositorio
+2. Netlify detectará automáticamente la configuración
+3. ¡Despliega en minutos!
+
+Consulta [docs/NETLIFY-SETUP.md](docs/NETLIFY-SETUP.md) para la guía paso a paso.
+
+### Otras Opciones de Despliegue
+
+También puedes desplegar en:
+- **GitHub Pages:** Ya configurado (ver `docs/GITHUB-PAGES.md`)
+- **Vercel:** Similar a Netlify, muy fácil de usar
+- **Firebase Hosting:** Si usas otros servicios de Firebase
 
 ### Configuración Inicial
 

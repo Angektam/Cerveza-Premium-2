@@ -6,8 +6,7 @@ Backend API RESTful para la aplicación Cerveza Premium.
 
 ```
 backend/
-├── server.js              # Servidor principal (versión actual)
-├── server-improved.js     # Servidor mejorado (nueva estructura)
+├── server.js              # Servidor principal
 ├── controllers/           # Controladores (lógica de negocio)
 │   └── authController.js
 ├── routes/                # Rutas de la API
@@ -63,11 +62,7 @@ UPLOAD_DIR=uploads
 
 ### 3. Iniciar servidor
 ```bash
-# Versión actual
 node server.js
-
-# Versión mejorada (nueva estructura)
-node server-improved.js
 ```
 
 ## 📡 Endpoints Principales
@@ -127,7 +122,7 @@ node server-improved.js
 
 ## 🛠️ Mejoras Implementadas
 
-### Nueva Estructura (server-improved.js)
+### Estructura del Servidor
 - ✅ Separación de rutas en módulos
 - ✅ Controladores para lógica de negocio
 - ✅ Utilidades reutilizables

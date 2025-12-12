@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 // Interfaces para tipado
 export interface Usuario {
@@ -89,7 +90,7 @@ export interface TransaccionPuntos {
   providedIn: 'root'
 })
 export class DatabaseService {
-  private apiUrl = 'http://localhost:4000/api'; // URL de tu backend
+  private apiUrl = environment.apiUrl; // URL del backend según el entorno
   private currentUserSubject = new BehaviorSubject<Usuario | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
   
