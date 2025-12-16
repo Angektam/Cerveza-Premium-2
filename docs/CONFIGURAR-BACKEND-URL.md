@@ -48,8 +48,12 @@ Consulta `docs/OPCIONES-DESPLIEGUE.md` para más detalles.
 
 ### 2. Obtener la URL del Backend
 
-Una vez desplegado, obtén la URL de tu backend:
-- Railway: `https://tu-app.railway.app`
+**⚠️ IMPORTANTE:** Necesitas la URL REAL de tu backend, no la de ejemplo.
+
+Consulta `docs/OBTENER-URL-BACKEND.md` para instrucciones detalladas sobre cómo encontrar la URL real en Railway, Render u otros servicios.
+
+Una vez desplegado, la URL será algo como:
+- Railway: `https://tu-app-production.up.railway.app` (cada proyecto tiene una URL única)
 - Render: `https://tu-app.onrender.com`
 - Heroku: `https://tu-app.herokuapp.com`
 
