@@ -1,6 +1,7 @@
 // Environment para producción
 export const environment = {
   production: true,
-  apiUrl: 'https://cerveza-premium-2-production.up.railway.app/api'
+  // URL de API en Vercel (mismo dominio que el frontend)
+  apiUrl: '/api'
 };
 
